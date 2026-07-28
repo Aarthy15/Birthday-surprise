@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise</title>
+
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    text-align:center;
+    background:white;
+    padding:20px;
+}
+
+/* Google Logo */
+
+.logo{
+    font-size:clamp(50px,10vw,90px);
+    font-weight:bold;
+    letter-spacing:-6px;
+    margin-top:40px;
+}
+
+.blue{color:#4285F4;}
+.red{color:#EA4335;}
+.yellow{color:#FBBC05;}
+.green{color:#34A853;}
+
+/* Search Bar */
+
+.search-box{
+    width:90%;
+    max-width:800px;
+    height:55px;
+    margin:30px auto;
+
+    display:flex;
+    align-items:center;
+
+    border:1px solid #ddd;
+    border-radius:30px;
+
+    padding:0 15px;
+
+    box-shadow:0 2px 5px rgba(0,0,0,.15);
+}
+
+.search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    font-size:18px;
+    margin-left:15px;
+    width:100%;
+}
+
+.left-icon{
+    font-size:30px;
+    cursor:pointer;
+}
+
+.right-icon{
+    font-size:28px;
+    margin-left:20px;
+    cursor:pointer;
+}
+
+.message{
+    margin-top:30px;
+    font-size:20px;
+    color:black;
+    line-height:1.8;
+    padding:0 15px;
+}
+
+.message strong{
+    color:black;
+    font-size:22px;
+}
+
+#error{
+    color:red;
+    font-size:20px;
+    margin-top:20px;
+}
+
+/* ---------------- Laptop ---------------- */
+
+@media (max-width:1024px){
+
+    .logo{
+        font-size:75px;
+    }
+
+    .search-box{
+        max-width:700px;
+    }
+
+}
+
+/* ---------------- Tablet ---------------- */
+
+@media (max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .logo{
+        font-size:60px;
+        letter-spacing:-4px;
+    }
+
+    .search-box{
+        width:95%;
+        height:50px;
+    }
+
+    .search-box input{
+        font-size:16px;
+    }
+
+    .left-icon,
+    .right-icon{
+        font-size:24px;
+        margin-left:12px;
+    }
+
+    .message{
+        font-size:18px;
+    }
+
+    .message strong{
+        font-size:20px;
+    }
+
+}
+
+/* ---------------- Mobile ---------------- */
+
+@media (max-width:480px){
+
+    body{
+        padding:10px;
+    }
+
+    .logo{
+        font-size:48px;
+        letter-spacing:-3px;
+        margin-top:25px;
+    }
+
+    .search-box{
+        width:100%;
+        height:48px;
+        padding:0 10px;
+    }
+
+    .search-box input{
+        font-size:15px;
+        margin-left:8px;
+    }
+
+    .left-icon,
+    .right-icon{
+        font-size:22px;
+        margin-left:8px;
+    }
+
+    .message{
+        font-size:16px;
+        line-height:1.7;
+        padding:0 5px;
+    }
+
+    .message strong{
+        font-size:17px;
+    }
+
+    #error{
+        font-size:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 class="logo">
+    <span class="blue">G</span>
+    <span class="red">o</span>
+    <span class="yellow">o</span>
+    <span class="blue">g</span>
+    <span class="green">l</span>
+    <span class="red">e</span>
+</h1>
+
+<div class="search-box">
+
+    <span class="material-icons left-icon">add</span>
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Ask Google"
+    >
+
+    <span class="material-icons right-icon">mic</span>
+
+    <span class="material-icons right-icon">photo_camera</span>
+
+</div>
+
+<p class="message">
+    <br>
+    My Dearest Husband 
+    <br>
+    Please type these magical words into the search box
+    <br>
+    <strong>
+    "Aarthy loves Gowtham more than he loves her."
+    </strong>
+    <br>
+    A little surprise is waiting for you...
+</p>
+
+<p id="error"></p>
+
+<script>
+
+const search = document.getElementById("search");
+const error = document.getElementById("error");
+
+search.addEventListener("keydown", function(event){
+
+    if(event.key === "Enter"){
+
+        const text = search.value.trim();
+
+        if(text === "Aarthy loves Gowtham more than he loves her."){
+
+            window.location.href="surprise.html";
+
+        }
+
+        else{
+
+            error.innerHTML="❌ Please enter the correct sentence.";
+            search.value="";
+        }
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
