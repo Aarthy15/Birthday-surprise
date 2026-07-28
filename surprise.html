@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Happy Birthday</title>
+</head>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    text-align:center;
+    background:#fff;
+    overflow-x:hidden;
+    padding:20px;
+}
+
+/* Google Logo */
+
+.logo{
+    font-size:clamp(50px,8vw,70px);
+    font-weight:bold;
+    letter-spacing:-6px;
+    margin-top:40px;
+}
+
+.blue{color:#4285F4;}
+.red{color:#EA4335;}
+.yellow{color:#FBBC05;}
+.green{color:#34A853;}
+
+/* RESULT */
+
+.result-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    margin:30px auto;
+    flex-wrap:wrap;
+}
+
+.result{
+    font-size:clamp(28px,5vw,35px);
+    font-weight:bold;
+    letter-spacing:-4px;
+    margin:0;
+}
+
+/* Search Box */
+
+.search-box{
+    width:90%;
+    max-width:800px;
+    height:55px;
+    margin:30px auto;
+    display:flex;
+    align-items:center;
+    border:1px solid #ddd;
+    border-radius:30px;
+    padding:0 15px;
+    box-shadow:0 2px 5px rgba(0,0,0,.15);
+}
+
+.search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    font-size:18px;
+    margin-left:15px;
+    color:black;
+}
+
+.search-box input::placeholder{
+    color:black;
+}
+
+/* RESULT SEARCH */
+
+.result-box{
+    width:90%;
+    max-width:450px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    border:2px solid #ddd;
+    border-radius:25px;
+    padding:0 15px;
+    box-shadow:0 2px 5px rgba(0,0,0,.15);
+}
+
+.result-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    font-size:18px;
+    margin-left:10px;
+}
+
+.result-box input::placeholder{
+    color:black;
+}
+
+.left-icon{
+    font-size:28px;
+    cursor:pointer;
+}
+
+.right-icon{
+    font-size:26px;
+    margin-left:15px;
+    cursor:pointer;
+}
+
+/* Text */
+
+.display{
+    font-size:17px;
+    color:grey;
+    margin-top:15px;
+}
+
+.language{
+    font-size:15px;
+    color:grey;
+    margin-top:15px;
+    word-spacing:18px;
+}
+
+/* Menu */
+
+.menu{
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    font-size:20px;
+    color:grey;
+}
+
+.menu span{
+    cursor:pointer;
+}
+
+.menu span:hover{
+    color:black;
+    text-decoration:underline;
+}
+
+.line{
+    width:90%;
+    max-width:700px;
+    height:2px;
+    background:#ccc;
+    border:none;
+    margin:20px auto;
+}
+
+/* Image */
+
+.image-container{
+    position:relative;
+    width:100%;
+    max-width:400px;
+    margin:35px auto;
+}
+
+.image-container img{
+    width:100%;
+    max-width:400px;
+    aspect-ratio:1/1;       /* Square box */
+    object-fit:contain;     /* Show the entire image */
+    background:#fff;        /* Background around image */
+    border:1px solid black;
+    border-radius:8px;
+    transition:.4s;
+    display:block;
+    margin:auto;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
+.image-container img:hover{
+    transform:scale(1.05);
+    filter:grayscale(100%);
+}
+
+/* Floating Hearts */
+
+.heart{
+    position:absolute;
+    font-size:30px;
+    opacity:0;
+    pointer-events:none;
+}
+
+.heart:nth-child(2){left:20%;top:80%;}
+.heart:nth-child(3){left:40%;top:80%;}
+.heart:nth-child(4){left:60%;top:80%;}
+.heart:nth-child(5){left:80%;top:80%;}
+.heart:nth-child(6){left:50%;top:90%;}
+
+.image-container:hover .heart{
+    animation:flyHeart 2s ease-out forwards;
+}
+
+.image-container:hover .heart:nth-child(3){animation-delay:.2s;}
+.image-container:hover .heart:nth-child(4){animation-delay:.4s;}
+.image-container:hover .heart:nth-child(5){animation-delay:.6s;}
+.image-container:hover .heart:nth-child(6){animation-delay:.8s;}
+
+@keyframes flyHeart{
+    0%{
+        transform:translateY(0) scale(.5);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-220px) scale(1.5) rotate(20deg);
+        opacity:0;
+    }
+}
+
+/* Content */
+
+.content{
+    text-align:center;
+    
+}
+
+.content2{
+    max-width:900px;
+    margin:30px auto;
+    padding:0 15px;
+   
+}
+.content h2{
+    margin-bottom:15px;
+}
+
+.content h3{
+    margin-bottom:35px;
+}
+.content2 h4{
+    margin-bottom:20px;
+}
+
+.content2 p{
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* Button */
+
+.box{
+    width:200px;
+    height:60px;
+    margin:40px auto;
+    background:black;
+    color:white;
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
+.box:hover{
+    transform:scale(1.05);
+    background:#333;
+}
+
+/* ---------------- Laptop ---------------- */
+
+@media (max-width:1024px){
+
+    .logo{
+        font-size:60px;
+    }
+
+}
+
+/* ---------------- Tablet ---------------- */
+
+@media (max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .logo{
+        font-size:55px;
+    }
+
+    .search-box,
+    .result-box{
+        width:95%;
+    }
+
+    .display,
+    .language{
+        font-size:15px;
+    }
+
+    .menu{
+        gap:20px;
+        font-size:18px;
+    }
+
+    .content2 p{
+        font-size:17px;
+    }
+
+}
+
+/* ---------------- Mobile ---------------- */
+
+@media (max-width:480px){
+
+    body{
+        padding:10px;
+    }
+
+    .logo{
+        font-size:45px;
+        letter-spacing:-3px;
+    }
+
+    .search-box{
+        height:48px;
+    }
+
+    .search-box input,
+    .result-box input{
+        font-size:15px;
+    }
+
+    .left-icon,
+    .right-icon{
+        font-size:22px;
+        margin-left:8px;
+    }
+
+    .result{
+        font-size:28px;
+    }
+
+    .display{
+        font-size:14px;
+    }
+
+    .language{
+        font-size:13px;
+        word-spacing:8px;
+        line-height:2;
+    }
+
+    .menu{
+        font-size:16px;
+        gap:15px;
+    }
+
+    .content2 p{
+        font-size:16px;
+        text-align:center;
+    }
+
+    .box{
+        width:170px;
+        height:55px;
+        font-size:24px;
+    }
+
+}
+</style>
+
+
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Clone</title>
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1 class="logo">
+    <span class="blue">G</span>
+    <span class="red">o</span>
+    <span class="yellow">o</span>
+    <span class="blue">g</span>
+    <span class="green">l</span>
+    <span class="red">e</span>
+</h1>
+
+<div class="search-box">
+
+    <span class="material-icons left-icon">add</span>
+
+    <input type="text" placeholder="World's Best Man ">
+
+    <span class="material-icons right-icon">mic</span>
+
+    <span class="material-icons right-icon">photo_camera</span>
+
+</div>
+
+<h2 class="display">
+    Google search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       I'm feeling lucky
+</h2>
+
+<h2 class="language">
+    தமிழ் English हिंदी മലയാളം తెలుగు اردو বাংলা
+</h2>
+
+<div class="result-container">
+
+    <h1 class="result">
+        <span class="blue">R</span>
+        <span class="red">E</span>
+        <span class="yellow">S</span>
+        <span class="blue">U</span>
+        <span class="green">L</span>
+        <span class="red">T</span>
+    </h1>
+
+    <div class="result-box">
+
+        <span class="material-icons left-icon">add</span>
+
+        <input type="text" placeholder="Mr. Gowtham Ramamurthy">
+
+        <span class="material-icons right-icon">mic</span>
+        <span class="material-icons right-icon">photo_camera</span>
+
+    </div>
+
+</div>
+
+<div class="menu">
+
+    <span onclick="openAll()">All</span>
+
+    <span onclick="openImage()">Image</span>
+
+    <span onclick="openVideo()">Video</span>
+
+    <span onclick="openMap()">Map</span>
+
+    <span onclick="openReview()">Review</span>
+
+</div>
+
+<hr class="line">
+
+<div class="content">
+<h2>"Happy Birthday to My Man"</h2>
+<h3>The one I Love Most in the World! 🖤</h3>
+<div class="image-container">
+    <img src="C:\Users\gowth\OneDrive\Desktop\Aarthy\Birthday surprise\photos\all.jpg" alt="image" id="photo">
+
+    <span class="heart">🖤</span>
+    <span class="heart">🖤</span>
+    <span class="heart">🖤</span>
+    <span class="heart">🖤</span>
+    <span class="heart">🖤</span>
+    <span class="heart">🖤</span>
+    <span class="heart">🖤</span>
+    <span class="heart">🖤</span>
+    <span class="heart">🖤</span>
+    
+</div>
+
+<div class="content2 ">
+<h4>Today is my best man's birthday. 🖤</h4>
+<p>I feel so lucky to have you in my life. You are the most special person to me. No matter what happens, </p>
+<p>I know I can always open up to you without any hesitation or fear. Thank you for always being my safe. </p>
+<p>The little things you say to me always brighten my day and bring a smile to my face.</p>
+<p>You still give me butterflies every time I see you, and you care for me so lovingly,</p>
+<p>I feel so lucky to have you in my life 🖤</p>
+</div>
+</div>
+
+<div class="box" onclick="checkPassword()">
+    🖤 Click Me
+</div>
+
+<script>
+
+function checkPassword(){
+
+    let password = prompt("Enter the Secret Password ❤️");
+
+    if(password === "Aarthy123"){
+        window.location.href = "surprise.html";
+    }
+    else{
+        alert("❌ Incorrect Password!");
+    }
+
+}
+
+    
+function openAll(){
+    window.location.href = "all.html";
+}
+
+function openImage(){
+    window.location.href = "image.html";
+}
+
+function openVideo(){
+    window.location.href = "video.html";
+}
+
+function openMap(){
+    window.location.href = "map.html";
+}
+
+function openReview(){
+    window.location.href = "review.html";
+}
+
+function checkPassword(){
+
+    let password = prompt("Enter the Secret Password ❤️");
+
+    if(password === "gowaar@3015"){
+        window.location.href = "secret.html";
+    }
+    else{
+        alert("❌ Incorrect Password!");
+    }
+
+}
+
+</script>
+</body>
+
+</html>
